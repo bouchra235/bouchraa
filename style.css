@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*margin: 0; définit l'espace à l'extérieur d'un élément à zéro, ce qui élimine tout espace supplémentaire autour de lui.
+    padding: 0; définit l'espace à l'intérieur d'un élément à zéro, garantissant qu'il n'y ait pas d'espace supplémentaire entre le contenu et la bordure de l'élément.*/
+}
+body {
+    background-color: cadetblue;
+    background-image: -webkit-linear-gradient(rgb(175, 75, 75), rgb(31, 31, 31), rgb(59, 153, 148));
+    /*So, by using both properties, you ensure that the background looks good with a gradient when possible (modern browsers that support gradients) and still looks acceptable with a solid color background for browsers that may not support gradients or if there are issues with loading the image. It's a way to provide graceful degradation in case certain CSS features are not supported.*/
+    /*In CSS, rgb(175, 75, 75) represents a color using the RGB (Red, Green, Blue) color model. It specifies a specific color by defining the amount of red, green, and blue components in the color.
+    175 represents the amount of red in the color, where 0 means no red, and 255 means full red intensity.
+    75 represents the amount of green in the color, where 0 means no green, and 255 means full green intensity.
+    75 represents the amount of blue in the color, where 0 means no blue, and 255 means full blue intensity.
+    So, rgb(175, 75, 75) would result in a color that is reddish with some green and blue, creating a shade of reddish-brown.*/
+    min-height: 800px; /*aussi bah background-image tmchi */
+    /*min-height: 800px; est appliqué à l'élément body, ce qui signifie que le corps de la page HTML aura une hauteur minimale de 800 pixels, peu importe son contenu.*/
+}
+#game{
+    height: 520px;
+    width: 480px;
+    border: 3px solid black;
+    background: url(bg.jpg);
+    background-size: cover; /*is a property that scales a background image to cover the entire container while maintaining its aspect ratio.*/
+    margin: 3rem auto;/*En CSS, margin: auto; est une propriété qui centre horizontalement un élément à l'intérieur de son conteneur parent. Elle calcule automatiquement et applique une marge égale sur les côtés gauche et droit de l'élément, ce qui le centre efficacement. Cela est couramment utilisé à des fins de mise en page et d'alignement.*/
+    overflow: hidden;
+}
+#block{
+    width: 60px;
+    height: 520px;
+    background-color: blueviolet;
+    position: relative; /*En CSS, position: relative; est une propriété qui positionne un élément par rapport à sa position normale dans le flux du document. Elle vous permet de déplacer l'élément à partir de sa position par défaut en utilisant les propriétés telles que top, bottom, left et right. Les autres éléments dans le flux du document continuent de respecter l'espace occupé par l'élément positionné de manière relative, même s'il est déplacé.*/
+    left: 200px;/*In CSS, left: 400px; is a property that positions an element 400 pixels to the right of its default or initial position. This means that if you have an element, and you apply left: 400px; to it, it will be moved 400 pixels to the right of where it would normally appear in the document flow. This property is often used with elements that have position: relative; or position: absolute; to control their horizontal positioning.*/
+    animation: block 2s linear infinite;
+}
+@keyframes block{
+     0%{
+        left: 500px; /*the right ga3*/
+     }
+     100%{
+        left: -50px; /*the left ga3*/
+     }
+}
+#hole{
+    height: 150px;
+    width: 60px;
+    background-color: yellow ;
+    position: relative;
+    left: 200px;
+    top: -500px;/*L'utilisation d'une valeur négative pour top est courante lorsque vous souhaitez masquer un élément hors de l'écran au démarrage, puis vous pouvez utiliser des animations CSS ou JavaScript pour déplacer l'élément vers le bas (vers une valeur de top positive) pour le faire apparaître à un moment donné, par exemple, lorsqu'un déclencheur d'interaction est activé. Cela permet de créer des effets de transition ou d'animation pour montrer ou masquer des éléments de manière fluide.*/
+    /* Si l'élément #hole est toujours visible sur votre page malgré la valeur top: -500px;, il pourrait y avoir plusieurs raisons possibles :
+    1.Éléments parents ou enfants : Assurez-vous que les éléments parents et enfants de #hole n'ont pas de propriétés CSS qui pourraient affecter sa visibilité.
+    2.Ordre d'affichage : Vérifiez si #hole n'est pas recouvert par d'autres éléments. Les éléments superposés peuvent masquer #hole.
+    3.Problèmes JavaScript : Si vous utilisez JavaScript pour manipuler la position de #hole, il peut annuler les valeurs CSS que vous avez définies. Assurez-vous qu'aucun script ne modifie la position de l'élément.
+    4.Cascading Styles : Assurez-vous qu'aucune autre règle CSS n'écrase la valeur top que vous avez définie pour #hole.*/
+    animation: block 2s linear infinite;
+}
+#bird{
+    position: fixed;
+    top: 100px; 
+    height: 250px;
+    width: 250px;
+}
+#bird img{
+    height: 200px;
+    width: 200px;
+}
+#result{
+    height: 200px;
+    width: 400px;
+    background-color: brown;
+    margin: 5rem auto;
+    border: 2px solid white;
+    border-radius: 20px;/*it means that each corner of the element will have a quarter-circle with a 20-pixel radius applied to it, effectively rounding off the corners.*/
+    display: none; /*is used to hide an element on a webpage, making it invisible and effectively removing it from the layout.*/ 
+    text-align: center;
+}
+#btn{
+    padding: 0.5rem 1rem;
+    /*0.5rem: This value sets the top and bottom padding to 0.5 "rems." It's a unit of measurement relative to the font size of the root element, similar to the explanation I provided earlier.
+    1rem: This value sets the left and right padding to 1 "rem."*/
+    border: none;
+    border-radius: 11px;
+    background-color: green;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: 1rem;/*This property controls the spacing between the top edge of an element and the elements around it or its container.*/
+    cursor: pointer;
+}
+#text{
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: seashell;
+}
